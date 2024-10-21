@@ -1,8 +1,11 @@
 package oldshelf;
 
 public abstract class Book {
-
-	public Book() {
-		// TODO: Finish Code here if anything to be done?
+	private final String title;
+	public Book(String title) {
+		this.title=title;
+	}
+	public String toString(){
+		return "Title: "+title;
 	}
 }
