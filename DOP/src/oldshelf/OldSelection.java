@@ -23,7 +23,7 @@ public class OldSelection {
 			}
 			else if (o instanceof TextBook){
 				TextBook tb = (TextBook) o;
-				return tb.get_sub();
+				return tb.subject();
 			}
 		}
 		else{
@@ -32,10 +32,12 @@ public class OldSelection {
 		return null;
 	}
 	public static void main(String[] args) {
-		Comic c = new Comic("Spiderverse", 12);
+		Comic c = new Comic("ab", 2);
 		Comic c1 = new Comic("Spiderverse I", 13);
+		Comic c2 = new Comic("ba", 2);
 		Fiction f = new Fiction("Hardy Boys", "Thomas J Paul");
 		TextBook t = new TextBook("Study of microbiology", "Biology");
+		TextBook t1 = new TextBook("Study of microbiology-2", "Biology");
 		game g = new game();
 		System.out.println(getAgeOrTitle(c));
 		System.out.println(getAgeOrTitle(f));
@@ -43,5 +45,11 @@ public class OldSelection {
 		System.out.println(getAgeOrTitle(g));
 		System.out.println(c.equals(c));
 		System.out.println(c.equals(c1));
+		System.out.println(c.equals(c2));
+		System.out.println();
+		System.out.println(t.equals(t));
+		System.out.println(t.equals(t1));
+		System.out.println(t.hashCode());
+		System.out.println(t1.hashCode());
 	}
 }

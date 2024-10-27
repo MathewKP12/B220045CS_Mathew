@@ -4,13 +4,13 @@ public class NewSelection {
 	public static String getAgeOrTitle(Object o) {
 		if (o instanceof IBook) {
 			if(o instanceof Comic1 c){
-				return c.getTitle();
+				return c.Title();
 			}
 			else if (o instanceof Fiction1 f){
-				return f.g_name();
+				return f.name();
 			}
 			else if (o instanceof TextBook tb){
-				return tb.get_sub();
+				return tb.subject();
 			}
 		}
 		else{

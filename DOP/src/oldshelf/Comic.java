@@ -22,18 +22,22 @@ public class Comic extends Book {
 
 	@Override
 	public int hashCode() {
+		int p=(int)Title.charAt(0);
 		if(Title!=null){
-			return ageOfMainCharacter;
+			for(int c=1;c<Title.length();c++){
+				p=Math.abs((p+(int)c)*(p+(int)c+1)/2+p);
+			}
+			
+			return Math.abs((ageOfMainCharacter+p)*(ageOfMainCharacter+p+1)/2+p);
 		}
 		return 0;
 	}
 	 
 	@Override
 	public boolean equals(Object o) {
-		if(o instanceof Comic){
-			Comic c =(Comic) o;
+		if(o instanceof Comic c){
 			System.out.println(c.hashCode());
-			if(c.hashCode()==this.get_age()){
+			if(c.hashCode()==this.hashCode()){
 				return true;
 			}
 		}
