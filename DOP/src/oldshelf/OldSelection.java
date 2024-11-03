@@ -11,25 +11,12 @@ public class OldSelection {
 	 * returns name, and if TextBook, returns subject.
 	 */
 	public static String getAgeOrTitle(Object o) {
-		
-		if (o instanceof Book) {
-			if(o instanceof Comic){
-				Comic c= (Comic) o;
-				return c.get_title();
-			}
-			else if (o instanceof Fiction){
-				Fiction f = (Fiction) o;
-				return f.get_name();
-			}
-			else if (o instanceof TextBook){
-				TextBook tb = (TextBook) o;
-				return tb.subject();
-			}
-		}
-		else{
-			return " ";
-		}
-		return null;
+		return switch(o){
+			case Comic c -> c.get_title();
+			case Fiction F -> F.get_name();
+			case TextBook t -> t.subject();
+			default -> "";
+		};
 	}
 	public static void main(String[] args) {
 		Comic c = new Comic("ab", 2);

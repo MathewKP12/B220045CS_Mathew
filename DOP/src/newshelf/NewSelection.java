@@ -1,22 +1,18 @@
 package newshelf;
+
 class tathva{}
+
 public class NewSelection {
 	public static String getAgeOrTitle(Object o) {
-		if (o instanceof IBook) {
-			if(o instanceof Comic1 c){
-				return c.Title();
-			}
-			else if (o instanceof Fiction1 f){
-				return f.name();
-			}
-			else if (o instanceof TextBook tb){
-				return tb.subject();
-			}
-		}
-		else{
-			return " ";
-		}
-		return null;
+		return switch(o){
+			case Comic1(String Title,int age) when age > 10 -> "new movie " + Title;
+			case Comic1(String Title,int age) when age <= 10 -> Title;
+			case Fiction1(String title, String name) ->name;
+			case TextBook(String t, String s) -> s;
+			case Integer I -> Integer.toString(I);
+			case String s -> s;
+			default -> " ";
+		};
 	}
 
 	public static void main(String[] args) {
@@ -29,6 +25,8 @@ public class NewSelection {
 		System.out.println(getAgeOrTitle(c));
 		System.out.println(getAgeOrTitle(f));
 		System.out.println(getAgeOrTitle(t));
+		System.out.println(getAgeOrTitle(10));
+		System.out.println(getAgeOrTitle("SSL > NSL :)"));
 		System.out.println(getAgeOrTitle(g));
 		System.out.println(c.equals(c));
 		System.out.println(c.equals(c1));
